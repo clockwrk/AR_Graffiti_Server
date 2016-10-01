@@ -5,11 +5,14 @@ var Sequelize = require('sequelize');
 
 var db = require('../_db');
 
-module.exports = db.define('drawing', {
-  stroke: {
+module.exports = db.define('stroke', {
+  dots: {
     type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.INTEGER))
   },
-  angle: {
-    type: Sequelize.INTEGER
+  color: {
+    type: Sequelize.STRING
+  },
+  font: {
+    type: Sequelize.STRING
   }
 });
