@@ -1,38 +1,38 @@
 const router = require('express').Router()
 module.exports = router;
-const Drawing =  require('../../../db/models/drawing.js')
+const Location =  require('../../../db/models/location.js')
 
 router.get('/', (req, res, next) => {
-    console.log('Retriving All Drawings')
-    Drawing.findAll()
-        .then( Drawings => {
-            res.send(Drawings)
+    console.log('Retriving All Location')
+    Location.findAll()
+        .then( Locations => {
+            res.send(Locations)
         })
         .catch(next)
 })
 
 router.get('/:id', (req, res, next) => {
     console.log('Retriving drawing number #{req.params.id}')
-    Drawing.findById(req.params.id)
-        .then( Drawing => {
-            res.send(Drawing)
+    Location.findById(req.params.id)
+        .then( Location => {
+            res.send(Location)
         })
         .catch(next)
 })
 
 router.post('/', (req, res, next) => {
-    console.log('Creating new drawing')
-    let newDrawing = req.body
-    Drawing.create(newDrawing)
-        .then( drawing => {
-            res.send(drawing)
+    console.log('Creating new location')
+    let newLocation = req.body
+    Location.create(newLocation)
+        .then( location => {
+            res.send(location)
         })
         .catch(next)
 })
 
 router.delete('/:id', (req, res, next) => {
-    console.log('Destoying drawing #{req.params.id}')
-    Drawing.destroy({
+    console.log('Destoying location #{req.params.id}')
+    Location.destroy({
         where: {
             id: req.params.id
         }
@@ -45,14 +45,14 @@ router.delete('/:id', (req, res, next) => {
 })
 
 router.put('/:id', ( req, res, next ) => {
-    let updatedDrawing = req.body
-    Drawing.update(updatedDrawing, {
+    let updatedLocation = req.body
+    Location.update(updatedLocation, {
         where: {
             id: req.params.id
         }
     })
-        .then(drawing => {
-            res.send(drawing)
+        .then(location => {
+            res.send(location)
         })
         .catch(next)
 
