@@ -1,18 +1,18 @@
-// 'use strict';
-//
-// var _ = require('lodash');
-// var Sequelize = require('sequelize');
-//
-// var db = require('../_db');
-//
-// module.exports = db.define('location', {
-//   latitude: {
-//     type: Sequelize.FLOAT
-//   },
-//   longitude: {
-//     type: Sequelize.FLOAT
-//   },
-//   altitude: {
-//     type: Sequelize.FLOAT
-//   }
-// });
+'use strict';
+
+var _ = require('lodash');
+var Sequelize = require('sequelize');
+
+var db = require('../_db');
+
+module.exports = db.define('location', {
+  latitude: {
+    type: Sequelize.FLOAT
+  },
+  longitude: {
+    type: Sequelize.FLOAT
+  },
+  altitude: {
+    type: Sequelize.FLOAT
+  }
+});
