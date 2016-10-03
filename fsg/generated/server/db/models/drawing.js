@@ -11,5 +11,8 @@ module.exports = db.define('drawing', {
   },
   angle: {
     type: Sequelize.INTEGER
-  }
+  },
+    directoryPath:{
+        type: Sequelize.STRING
+    }
 });

@@ -1,14 +1,21 @@
+var _ = require('lodash')
 const router = require('express').Router()
 module.exports = router;
 const Drawing =  require('../../../db/models/drawing.js')
 
 router.get('/', (req, res, next) => {
     console.log('Retriving All Drawings')
-    Drawing.findAll()
-        .then( Drawings => {
-            res.send(Drawings)
-        })
-        .catch(next)
+    // Drawing.findAll()
+    //     .then( Drawings => {
+    //         res.send(Drawings)
+    //     })
+    //     .catch(next)
+
+    Drawing.findById(_.random(1,20))
+        .then( drawing => {
+            res.sendFile(drawing.directoryPath);
+        }).catch(next)
+
 })
 
 router.get('/:id', (req, res, next) => {
