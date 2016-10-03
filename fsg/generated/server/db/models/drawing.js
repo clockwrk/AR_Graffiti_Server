@@ -14,5 +14,29 @@ module.exports = db.define('drawing', {
   },
     directoryPath:{
         type: Sequelize.STRING
+    },
+    image:{
+      type:Sequelize.BLOB('long')
     }
 });
+
+
+
+// var Image_Store = sequelize.define('image', {
+//   image_id: {
+//     type: Sequelize.INTEGER
+//   },
+//   image_type: {
+//     type: Sequelize.STRING,
+//     allowNull: false
+//   },
+//   image: {
+//     type: Sequelize.BLOB('long')
+//   },
+//   image_size: {
+//     type: Sequelize.INTEGER
+//   },
+//   image_name: {
+//     type: Sequelize.STRING
+//   }
+// });

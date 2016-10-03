@@ -22,6 +22,11 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+
+
+    
+
+
     console.log('Creating new stroke')
     let newStroke = req.body
     Strokes.create(newStroke)

@@ -18,7 +18,7 @@ name in the environment files.
 */
 
 let chalk = require('chalk');
-var path = require('path');
+let path = require('path');
 let fs = require('fs');
 let imgGen = require('js-image-generator')
 let _ = require('lodash');
@@ -95,7 +95,7 @@ let seedUsers = function () {
 
  console.log(__dirname);
 
-let seedDrawings = function(){
+let seedDrawings = () => {
 
     let imageCollection = []
 
@@ -116,18 +116,45 @@ let seedDrawings = function(){
 
 }
 
+let seedLocations = () => {
+
+    let locationCollection = [
+        {latitude:40.7046076, longitude:-74.0070599, heading:72.4895858 },
+        {latitude:40.7049060, longitude:-74.0086208, heading:76.1237869 },
+        {latitude:40.7049060, longitude:-74.0086208, heading:75.5955726 },
+        {latitude:40.7049060, longitude:-74.0086208, heading:78.7304382 },
+        {latitude:40.7039400, longitude:-74.0088153, heading:63.4991913 },
+        {latitude:40.7051723, longitude:-74.0102275, heading:86.4794692 },
+        {latitude:40.7051723, longitude:-74.0102275, heading:9.76774311 },
+        {latitude:40.7059424, longitude:-74.0094590, heading:66.7423629 },
+        {latitude:40.7051723, longitude:-74.0102275, heading:3.51462483 },
+        {latitude:40.7055303, longitude:-74.0092824, heading:95.2623138 },
+    ]
+
+
+    let creatingLocations =  locationCollection.map((locationObj) => {
+        return Location.create(locationObj);
+    })
+
+    return Promise.all(creatingLocations)
+
+}
+
 db.sync({ force: true })
-    .then(function () {
+    .then(() => {
         return seedUsers();
     })
     .then(() => {
         return seedDrawings();
     })
-    .then(function () {
+    .then(() => {
+        return seedLocations();
+    })
+    .then(() => {
         console.log(chalk.green('Seed successful!'));
         process.exit(0);
     })
-    .catch(function (err) {
+    .catch((err) => {
         console.error(err);
         process.exit(1);
     });
