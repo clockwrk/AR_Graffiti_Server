@@ -11,6 +11,19 @@ router.get('/', (req, res, next) => {
         .catch(next)
 })
 
+router.get('/ping/:longitude/:latitude', (req, res, next) => {
+
+    console.log('Longitude',req.params.longitude,'Latitude',req.params.latitude)
+
+    res.send(req.params.longitude, req.params.latitude)
+
+    // Location.findAll()
+    //     .then( Locations => {
+    //         res.send(Locations)
+    //     })
+    //     .catch(next)
+})
+
 router.get('/:id', (req, res, next) => {
     console.log('Retriving drawing number #{req.params.id}')
     Location.findById(req.params.id)
