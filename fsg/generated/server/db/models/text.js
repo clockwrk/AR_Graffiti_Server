@@ -5,7 +5,9 @@ var Sequelize = require('sequelize');
 
 var db = require('../_db');
 
+
 module.exports = db.define('text', {
+
   content: {
     type: Sequelize.STRING
   },
