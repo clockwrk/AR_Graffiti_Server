@@ -11,7 +11,7 @@ var User = require('./models/user');
 
 var Location = require('./models/location');
 var Drawing = require('./models/drawing');
-var Stroke = require('./models/stroke');
+// var Stroke = require('./models/stroke');
 var Text = require('./models/text');
 
 // Drawing and Text has locationId inside of the table
@@ -25,4 +25,4 @@ Drawing.belongsTo(Location);
 Text.belongsTo(Location);
 
 //drawing.getStrokes()
-Drawing.hasMany(Stroke);
+// Drawing.hasMany(Stroke);

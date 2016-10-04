@@ -7,7 +7,7 @@ var db = require('../_db');
 
 module.exports = db.define('drawing', {
   strokes: {
-    type: Sequelize.ARRAY(Sequelize.ARRAY)
+    type: Sequelize.STRING
   },
   angle: {
     type: Sequelize.INTEGER

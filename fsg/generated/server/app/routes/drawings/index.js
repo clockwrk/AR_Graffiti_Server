@@ -2,7 +2,7 @@
 var router = require('express').Router(); // eslint-disable-line new-cap
 module.exports = router;
 var _ = require('lodash');
-var Location = require('../../db/models/location');
+var Location = require('../../../db/models/location');
 
 router.get('/:lat/:lon/:alt', function(req, res, next) {
   // var location = req.params.currentLocation; //ex, '40712843N   74005952W'
