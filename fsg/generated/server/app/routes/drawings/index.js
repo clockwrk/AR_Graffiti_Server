@@ -2,6 +2,8 @@ var _ = require('lodash')
 const router = require('express').Router()
 module.exports = router;
 const Drawing =  require('../../../db/models/drawing.js')
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 // router.get('/', (req, res, next) => {
 //     console.log('Retriving All Drawings')
@@ -36,7 +38,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    console.log('Retriving drawing number #{req.params.id}')
+    console.log('Retriving drawing number'+ req.params.id)
     Drawing.findById(req.params.id)
         .then( Drawing => {
             res.send(Drawing)
@@ -53,18 +55,15 @@ router.get('/:id/image', (req, res, next) => {
         .catch(next)
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', upload.single('file'), (req, res, next) => {
     console.log('Creating new drawing')
-    var json = JSON.stringify(req.body)
-    console.log(json)
+    // var json = JSON.stringify(req.body)
+    // console.log(json)
 
 
     // var imageData = FS.readFileSync(__dirname + '/123_icon.png');
-
-    let newDrawing = req.body
-    Drawing.create(newDrawing)
+    Drawing.create(req.body)
         .then( drawing => {
-
             //console.log(drawing)
 
             res.send(drawing)

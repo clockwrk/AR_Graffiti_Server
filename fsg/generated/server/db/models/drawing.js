@@ -6,14 +6,14 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 module.exports = db.define('drawing', {
-<<<<<<< HEAD
-  stroke: {
-    type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.INTEGER))
-=======
-  strokes: {
-    type: Sequelize.STRING
->>>>>>> master
-  },
+// <<<<<<< HEAD
+//   stroke: {
+//     type: Sequelize.ARRAY(Sequelize.ARRAY(Sequelize.INTEGER))
+// =======
+//   strokes: {
+//     type: Sequelize.STRING
+// >>>>>>> master
+//   },
   angle: {
     type: Sequelize.INTEGER
   },
