@@ -21,7 +21,7 @@ module.exports = db.define('drawing', {
         type: Sequelize.STRING
     },
     image:{
-      type:Sequelize.BLOB('long')
+      type:Sequelize.TEXT
     }
 });
 

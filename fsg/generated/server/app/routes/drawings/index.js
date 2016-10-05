@@ -1,7 +1,8 @@
 var _ = require('lodash')
 const router = require('express').Router()
 module.exports = router;
-const Drawing =  require('../../../db/models/drawing.js')
+const Drawing = require('../../../db/models/drawing.js')
+const Location = require('../../../db/models/location.js')
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 
@@ -55,8 +56,9 @@ router.get('/:id/image', (req, res, next) => {
         .catch(next)
 })
 
-router.post('/', upload.single('file'), (req, res, next) => {
+router.post('/', (req, res, next) => {
     console.log('Creating new drawing')
+    console.log(req.body.location)
     // var json = JSON.stringify(req.body)
     // console.log(json)
 
@@ -70,6 +72,36 @@ router.post('/', upload.single('file'), (req, res, next) => {
         })
         .catch(next)
 })
+
+router.post('/longitude/:longitudeNum/latitude/:latitudeNum', (req, res, next) => {
+    console.log('Creating new drawing')
+    console.log(req.body)
+
+    console.log('longitude', req.params.longitudeNum)
+    console.log('latitude', req.params.latitudeNUm)
+
+    Location.findOrCreate({
+        where:{longitude:req.params.longitudeNum,latitude:req.params.latitudeNum}
+    }).spread(function(found,  created){
+        console.log('found', found, 'created',created)
+        res.send(found)
+    }).catch(next)
+
+
+    // var json = JSON.stringify(req.body)
+    // console.log(json)
+
+
+    // var imageData = FS.readFileSync(__dirname + '/123_icon.png');
+//     Drawing.create(req.body)
+//         .then( drawing => {
+//             //console.log(drawing)
+//
+//             res.send(drawing)
+//         })
+//         .catch(next)
+})
+
 
 router.delete('/:id', (req, res, next) => {
     console.log('Destoying drawing #{req.params.id}')

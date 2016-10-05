@@ -24,7 +24,7 @@ router.get('/ping/:longitude/:latitude', (req, res, next) => {
        },
        longitude: {
          $beween: [+req.params.longitude - 2000, +req.params.longitude + 2000]
-       },
+       }
        // altitude: {
        //   $beween: [+req.params.alt - 2000, +req.params.alt + 2000]
        // }
@@ -32,8 +32,8 @@ router.get('/ping/:longitude/:latitude', (req, res, next) => {
   }).then(function(locations) {
 
       console.log(locations)
-          var gettingDrawings = locations.map(loc => loc.getDrawings());
-          return Promise.all(gettingDrawings)
+          // var gettingDrawings = locations.map(loc => loc.getDrawings());
+          // return Promise.all(gettingDrawings)
       })
         .then(function(drawings) {
 
