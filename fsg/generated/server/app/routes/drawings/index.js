@@ -58,7 +58,8 @@ router.get('/:id/image', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     console.log('Creating new drawing')
-    console.log(req.body.location)
+    console.log("Location",req.body.longitude)
+    console.log("Location",req.body.latitude)
     // var json = JSON.stringify(req.body)
     // console.log(json)
 
@@ -75,7 +76,7 @@ router.post('/', (req, res, next) => {
 
 router.post('/longitude/:longitudeNum/latitude/:latitudeNum', (req, res, next) => {
     console.log('Creating new drawing')
-    console.log(req.body)
+    //console.log(req.body)
 
     console.log('longitude', req.params.longitudeNum)
     console.log('latitude', req.params.latitudeNUm)

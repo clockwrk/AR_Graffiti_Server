@@ -17,6 +17,12 @@ module.exports = db.define('drawing', {
   angle: {
     type: Sequelize.INTEGER
   },
+    latitude: {
+      type: Sequelize.FLOAT
+    },
+    longitude: {
+      type: Sequelize.FLOAT
+    },
     directoryPath:{
         type: Sequelize.STRING
     },
