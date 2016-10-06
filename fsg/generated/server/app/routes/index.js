@@ -4,6 +4,10 @@ module.exports = router;
 
 router.use('/members', require('./members'));
 router.use('/drawings', require('./drawings'));
+router.use('/locations', require('./locations'));
+router.use('/strokes', require('./strokes'));
+router.use('/texts', require('./strokes'));
+
 
 // Make sure this is after all of
 // the registered routes!

@@ -12,7 +12,7 @@ module.exports = db.define('location', {
   longitude: {
     type: Sequelize.FLOAT
   },
-  altitude: {
+  heading: {
     type: Sequelize.FLOAT
   }
 });
